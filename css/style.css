@@ -1,4 +1,4 @@
-/* ===== ОСНОВНОЙ ФОН И ТЕКСТ ===== */
+/* ===== ОСНОВНОЙ ФОН САЙТА ===== */
 body {
   margin: 0;
   padding: 0;
@@ -10,13 +10,13 @@ body {
   position: relative;
 }
 
-/* мягкая карта на фоне всего сайта */
+/* мягкая карта по всему сайту */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background: url("../images/map-texture.png") center/cover no-repeat;
-  opacity: 0.12;
+  opacity: 0.1;
   pointer-events: none;
   z-index: 0;
 }
@@ -35,51 +35,44 @@ body::before {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   min-height: 600px;
   overflow: hidden;
-  padding: 60px 10%;
-}
-
-/* слой бумаги */
-.hero-bg {
-  position: absolute;
-  inset: 0;
+  padding: 80px 10%;
   background: url("../images/paper-texture.png") center/cover no-repeat;
-  z-index: 0;
 }
 
-/* слой карты поверх бумаги */
-.hero-overlay {
+/* полупрозрачная карта поверх бумаги */
+.hero::before {
+  content: "";
   position: absolute;
   inset: 0;
   background: url("../images/map-texture.png") center/cover no-repeat;
   opacity: 0.25;
   mix-blend-mode: multiply;
-  z-index: 1;
+  z-index: 0;
 }
 
-/* контент поверх */
+/* ===== КОНТЕНТ ВНУТРИ ===== */
 .hero-content {
   position: relative;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  max-width: 1100px;
   gap: 60px;
+  width: 100%;
 }
 
 /* ===== ТЕКСТ СЛЕВА ===== */
 .hero-text {
-  flex: 1.7;
-  max-width: 580px;
-  background: rgba(255, 255, 255, 0.7);
+  flex: 1.6;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(5px);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px 35px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 .hero-text h1 {
@@ -105,6 +98,29 @@ body::before {
 .hero-text p {
   line-height: 1.7;
   margin-bottom: 20px;
+}
+
+/* ===== ФОТО СПРАВА ===== */
+.hero-photo {
+  flex: 1;
+  text-align: right;
+  position: relative;
+}
+
+.hero-photo img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 8px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 0 0 8px rgba(255, 255, 255, 0.5),
+    0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.hero-photo img:hover {
+  transform: scale(1.05);
 }
 
 /* ===== КНОПКИ ===== */
@@ -134,66 +150,49 @@ body::before {
   background: #e8d6a5;
 }
 
-/* ===== ФОТО СПРАВА ===== */
-.hero-photo {
-  flex: 1;
-  text-align: right;
-}
-
-.hero-photo img {
-  width: 280px;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 8px solid rgba(255, 255, 255, 0.8);
-  box-shadow:
-    0 0 0 8px rgba(255, 255, 255, 0.5),
-    0 8px 25px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease;
-}
-
-.hero-photo img:hover {
-  transform: scale(1.05);
-}
-
-/* ===== РАЗДЕЛЫ НИЖЕ ===== */
-section {
+/* ===== РАЗДЕЛ "ОБО МНЕ" ===== */
+.about {
   position: relative;
+  background: url("../images/paper-texture.png") center/cover no-repeat;
+  padding: 100px 10%;
   z-index: 1;
 }
 
-/* О МНЕ / Моя история */
-.about {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(8px);
-  padding: 80px 0;
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../images/map-texture.png") center/cover no-repeat;
+  opacity: 0.2;
+  mix-blend-mode: multiply;
+  z-index: 0;
 }
 
-.about h2 {
+.about-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-content h2 {
   text-align: center;
   font-size: 32px;
   color: #2e3a3a;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.about p {
-  max-width: 800px;
-  margin: 0 auto 20px;
+.about-content p {
   line-height: 1.8;
   color: #333;
 }
 
-/* ===== КНОПКИ В РАЗДЕЛАХ ===== */
-.buttons {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.buttons .cta-button {
-  margin: 10px;
-}
-
-/* ===== ПОДВАЛ (СОЦСЕТИ) ===== */
+/* ===== ПОДВАЛ ===== */
 .footer {
   text-align: center;
   background: linear-gradient(to top, #f4e7c5, #dbeef2);
@@ -208,10 +207,9 @@ section {
   font-weight: 600;
   transition: color 0.3s;
 }
-
 .footer a:hover {
   color: #005a64;
-  text-decoration: underline;
+text-decoration: underline;
 }
 
 /* ===== АДАПТИВ ===== */
@@ -223,11 +221,15 @@ section {
   }
 
   .hero-text {
-background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.8);
   }
 
   .hero-photo img {
     width: 220px;
     height: 220px;
+  }
+
+  .about-content {
+    padding: 25px;
   }
 }
