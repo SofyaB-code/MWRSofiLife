@@ -4,29 +4,45 @@ body {
   padding: 0;
   font-family: "Poppins", sans-serif;
   color: #2b2b2b;
-  background: linear-gradient(135deg, #f3e8c3, #dbeef2, #bcd4d0);
-  background-attachment: fixed;
   overflow-x: hidden;
+  background: linear-gradient(135deg, #e9dcc3, #cce5ea);
   position: relative;
 }
 
-/* ===== ФОН: БУМАГА + КАРТА ===== */
-body::before {
-  content: "";
+/* ===== ДВА СЛОЯ БУМАГИ + КАРТА ===== */
+.background {
   position: fixed;
   inset: 0;
-  background: url("../изображения/paper-texture.png") center/cover no-repeat;
-  z-index: 0;
-  opacity: 1;
+  z-index: -2;
+  overflow: hidden;
 }
-body::after {
-  content: "";
-  position: fixed;
+.paper-bg {
+  position: absolute;
   inset: 0;
-  background: url("../изображения/map-texture.png") center/cover no-repeat;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.95;
+  animation: paperMove 50s linear infinite alternate;
+}
+.map-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   opacity: 0.25;
   mix-blend-mode: multiply;
+  animation: mapDrift 120s linear infinite alternate;
+}
+
+@keyframes paperMove {
+  0% { transform: translateY(0) scale(1.01); }
+  100% { transform: translateY(-15px) scale(1.02); }
+}
+@keyframes mapDrift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50px); }
 }
 
 /* ===== ВОЗДУШНЫЕ ШАРЫ ===== */
@@ -50,7 +66,7 @@ body::after {
 /* ===== ГИРЛЯНДА ===== */
 .garland img {
   width: 100%;
-  opacity: 0.9;
+  opacity: 0.95;
   display: block;
   transform-origin: top center;
   animation: sway 6s ease-in-out infinite, glow 4s ease-in-out infinite;
@@ -58,15 +74,14 @@ body::after {
 
 /* ===== ГЛАВНЫЙ ЭКРАН ===== */
 .hero {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 700px;
   padding: 80px 8%;
+  position: relative;
   z-index: 1;
 }
-
 .hero-content {
   display: flex;
   justify-content: space-between;
@@ -74,8 +89,6 @@ body::after {
   width: 100%;
   max-width: 1200px;
   gap: 60px;
-  position: relative;
-  z-index: 2;
 }
 
 /* ===== ТЕКСТ СЛЕВА ===== */
@@ -141,7 +154,6 @@ body::after {
   font-weight: 600;
   font-size: 15px;
   color: #ffffff;
-  letter-spacing: 0.5px;
   transition: transform 0.3s ease;
 }
 .illuminator-link img {
@@ -165,7 +177,7 @@ body::after {
   transform: scale(1.05);
 }
 
-/* ===== ТЕЛЕФОН ===== */
+/* ===== ВИДЕО В IPHONE ===== */
 .video-phone {
   position: relative;
   margin-top: 35px;
@@ -200,15 +212,13 @@ body::after {
 .photo-item {
   position: relative;
   animation: fadeUp 1.5s ease forwards;
-  opacity: 0;
+opacity: 0;
 }
 .photo-item:nth-child(1) { animation-delay: 0.3s; }
 .photo-item:nth-child(2) { animation-delay: 0.6s; }
 .photo-item:nth-child(3) { animation-delay: 0.9s; }
 .photo-item:nth-child(4) { animation-delay: 1.2s; }
-.
-photo-item:nth-child(5) { animation-delay: 1.5s; }
-.photo-item:nth-child(6) { animation-delay: 1.8s; }
+.photo-item:nth-child(5) { animation-delay: 1.5s; }
 
 .photo-item img:first-child {
   width: 180px;
