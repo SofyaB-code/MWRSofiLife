@@ -1,53 +1,168 @@
 /* Общие стили */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #0b0742;
-  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0b0742;
+  color: white;
 }
 
 /* Контейнер */
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Верхняя часть с фото и именем */
 .hero {
-  text-align: center;
-  margin: 60px 0;
+  text-align: center;
+  margin: 60px 0;
 }
 
 .hero-photo img {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 6px rgba(255,255,255,0.3),
-    0 0 25px rgba(34,193,195,0.8),
-    0 0 50px rgba(123,47,247,0.6);
-  transition: transform 0.3s ease;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 6px rgba(255,255,255,0.3),
+    0 0 25px rgba(34,193,195,0.8),
+    0 0 50px rgba(123,47,247,0.6);
+  transition: transform 0.3s ease;
 }
 
 .hero-photo img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .hero h1 {
-  font-size: 32px;
-  color: #ffea9e;
-  margin-top: 20px;
-  letter-spacing: 1px;
+  font-size: 32px;
+  color: #ffea9e;
+  margin-top: 20px;
+  letter-spacing: 1px;
 }
 
 /* Блок Моя история */
 .about {
-  background: linear-gradient(135deg, #0b0742, #22c1c3, #7b2ff7, #ffcc33);
-  padding: 100px 0;
+  background: linear-gradient(135deg, #0b0742, #22c1c3, #7b2ff7, #ffcc33);
+  padding: 100px 0;
 }
 
 .about-content {
-  display: flex;
+  display: flex;
+  justify-content: center;
+}
+
+.about-text {
+  flex: 1;
+  max-width: 800px;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  color: #ffea9e;
+  margin-bottom: 24px;
+}
+
+.about-text p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #f1f1f1;
+  margin-bottom: 18px;
+}
+
+.about-text strong {
+  color: #ffcc33;
+}
+
+.about-text em {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+/* Кнопка */
+.cta-button {
+  display: inline-block;
+  background: #ffcc33;
+  color: #1e1e1e;
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 204, 51, 0.6);
+}
+
+.cta-button:hover {
+  background: #ffdf70;
+  box-shadow: 0 0 25px rgba(255, 204, 51, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Галерея */
+.gallery {
+  position: relative;
+  background: linear-gradient(to bottom, #7b2ff7, #22c1c3);
+  padding: 80px 0 160px;
+  overflow: hidden;
+}
+
+.string {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.photo {
+  width: 180px;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+/* рамки Instagram / YouTube */
+.photo.insta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 5px solid transparent;
+  border-image: linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5) 1;
+  border-radius: 12px;
+}
+
+.photo.youtube::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 5px solid #ff0000;
+  border-radius: 12px;
+}
+
+/* Примеры фото */
+.photo.insta:nth-child(1) { background-image: url('../images/travel1.jpg'); }
+.photo.youtube:nth-child(2) { background-image: url('../images/travel2.jpg'); }
+.photo.insta:nth-child(3) { background-image: url('../images/travel3.jpg'); }
+.photo.youtube:nth-child(4) { background-image: url('../images/travel4.jpg'); }
+
+/* Самолёт и шары */
+.gallery::after {
+  content: '✈️ 🎈 🎈';
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 48px;
+  animation: fly 12s linear infinite;
+}
+
+@keyframes fly {
+  0% { transform: translate(-200px, 0); opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { transform: translate(200px, 0); opacity: 0.5; }
+}
