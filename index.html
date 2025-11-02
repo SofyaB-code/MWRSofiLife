@@ -1,65 +1,66 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MWRSofiLife — Софья Беляева</title>
-
-  <!-- Шрифт и стили -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Софья Беляева — Путешествуй красиво</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
-  <!-- Верхний блок с фото и именем -->
-  <div class="hero">
-    <div class="hero-photo">
-      <img src="images/sofiya-photo.jpg" alt="Софья Беляева">
-    </div>
-    <h1>Софья Беляева</h1>
-  </div>
+  <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
 
-  <!-- Моя история -->
-  <section class="about">
-    <div class="container">
-      <div class="about-content">
-        <div class="about-text">
-          <h2>Моя история</h2>
-          <p>
-            Я <em>мама троих детей</em>, и с детства я очень любила путешествия. 
-            Всегда тянуло увидеть новые города, море, красивую природу, почувствовать атмосферу других мест.
-          </p>
-          <p>
-            Но раньше мои поездки были совсем другими — <em>бюджетные</em>, с постоянной экономией на отелях, экскурсиях и даже на шоппинге. 
-            С каждым новым ребёнком траты росли, и я всё сильнее понимала: <strong>хочу отдыхать по-другому</strong>.
-          </p>
-          <p>
-            Хочу комфорт, эмоции и настоящие впечатления, а не компромиссы. 
-            Но казалось, что для этого нужны огромные суммы — и я даже не думала, что можно путешествовать иначе.
-          </p>
-          <p>
-            Всё изменилось, когда я узнала о <strong>Travel Advantage</strong> — закрытом клубе, где можно отдыхать 
-            в пятизвёздочных отелях по цене трёхзвёздочных и находить предложения, которых нет на популярных сайтах вроде Booking или Aviasales.
-          </p>
-          <p>
-            Travel Advantage появился в тот момент, когда я поняла: <em>хочу больше свободы</em> — для себя, для семьи и для наших путешествий. 
-            Теперь я делюсь этим с другими, потому что знаю: путешествовать красиво и разумно — реально, даже когда у тебя трое детей и тысяча дел.
-          </p>
-          <a href="https://t.me/SofyaBelya" target="_blank" class="cta-button">Хочу в клуб</a>
+    <div class="hero-content">
+      <!-- ТЕКСТ СЛЕВА -->
+      <div class="hero-text">
+        <h2>Моя история</h2>
+        <p>
+          Я мама троих детей и с детства обожаю путешествия.  
+          Раньше я отдыхала бюджетно, экономила на отелях, экскурсиях и шопинге.  
+          Но с появлением детей я поняла, что хочу путешествовать по-другому — комфортно и выгодно.  
+          Так я узнала о Travel Advantage — закрытом клубе, где отдых в 5⭐ отелях стоит, как в трёхзвёздочных.
+        </p>
+        <a href="#presentation" class="cta-button">Посмотреть презентацию</a>
+        <a href="#travel" class="cta-button secondary">Как мы отдыхаем</a>
+      </div>
+
+      <!-- ФОТО СПРАВА -->
+      <div class="hero-photo">
+        <img src="images/sofiya-photo.jpg" alt="Софья Беляева">
+        <h3 class="photo-name">Софья Беляева</h3>
+        <p class="photo-subtitle">всё о путешествиях</p>
+
+        <!-- ПРЕЗЕНТАЦИЯ -->
+        <div class="presentation-block" id="presentation">
+          <a href="https://example.com/presentation.pdf" target="_blank" class="presentation-link">
+            <img src="images/presentation-icon.png" alt="Презентация" class="presentation-icon">
+            <span>Презентация компании</span>
+          </a>
+        </div>
+
+        <!-- ВИДЕО-ТЕЛЕФОН -->
+        <div class="video-phone">
+          <img src="images/iphone.png" alt="iPhone">
+          <video src="videos/travel.mp4" autoplay muted loop></video>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Галерея -->
-  <section class="gallery">
-    <div class="string">
-      <div class="photo insta"></div>
-      <div class="photo youtube"></div>
-      <div class="photo insta"></div>
-      <div class="photo youtube"></div>
+
+  <!-- ===== СОЦСЕТИ ===== -->
+  <footer class="footer">
+    <h3>Мои соцсети</h3>
+    <div class="social-links">
+      <a href="https://t.me/SofyaBelya" target="_blank">Telegram</a>
+      <a href="https://instagram.com/" target="_blank">Instagram</a>
+      <a href="https://vk.com/" target="_blank">VK</a>
     </div>
-  </section>
+  </footer>
 
 </body>
 </html>
