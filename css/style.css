@@ -1,18 +1,196 @@
-<section class="intro">
-  <div class="intro-text">
-    <h1>Софья Беляева</h1>
-    <p class="subtitle">всё о путешествиях</p>
-    <h2>Моя история</h2>
-    <p>
-      Я мама троих детей и с детства обожаю путешествия.
-      Раньше всё было иначе — бюджетно и с компромиссами.
-      Теперь я открываю мир по-новому и делюсь опытом с другими.
-    </p>
-    <a href="#presentation" class="cta-button">Посмотреть презентацию</a>
-    <a href="#travel" class="cta-button secondary">Как мы отдыхаем</a>
-  </div>
+/* ===== ОБЩИЙ СТИЛЬ ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  color: #2b2b2b;
+  background: linear-gradient(135deg, #f3e8c3, #dbeef2, #bcd4d0);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  position: relative;
+}
 
-  <div class="intro-photo">
-    <img src="images/sofiya-photo.jpg" alt="Софья Беляева">
-  </div>
-</section>
+/* Мягкая карта-подложка */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("../images/map-texture.png") center/cover no-repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Контейнер */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== ГЛАВНЫЙ ЭКРАН ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 100px 10%;
+  background: url("../images/paper-texture.png") center/cover no-repeat;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* ТЕКСТ СЛЕВА */
+.hero-text {
+  flex: 1.8;
+  max-width: 620px;
+}
+
+.hero-text h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 44px;
+  color: #2f3a3a;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.hero-text .subtitle {
+  font-style: italic;
+  font-size: 18px;
+  color: #5d5d5d;
+  margin-bottom: 28px;
+}
+
+.hero-text h2 {
+  font-size: 26px;
+  margin-bottom: 16px;
+  color: #3c4b4b;
+}
+
+.hero-text p {
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Кнопки */
+.cta-button {
+  display: inline-block;
+  margin: 8px 12px 0 0;
+  padding: 12px 30px;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #007a87, #00a6a9);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0, 122, 135, 0.3);
+  transition: all 0.3s ease;
+}
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 122, 135, 0.45);
+}
+.cta-button.secondary {
+  background: #d9c79c;
+  color: #2b2b2b;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+.cta-button.secondary:hover {
+  background: #e3d3a6;
+}
+
+/* ===== ФОТО СПРАВА ===== */
+.hero-photo {
+  flex: 1.2;
+  text-align: right;
+  position: relative;
+}
+
+.hero-photo img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 8px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 0 0 8px rgba(255, 255, 255, 0.5),
+    0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.hero-photo img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== РАЗДЕЛЫ НИЖЕ ===== */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* О МНЕ / Моя история */
+.about {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 80px 0;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #2e3a3a;
+  margin-bottom: 30px;
+}
+
+.about p {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* ===== КНОПКИ ВНУТРИ РАЗДЕЛОВ ===== */
+.buttons {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.buttons .cta-button {
+  margin: 10px;
+}
+
+/* ===== ПОДВАЛ (СОЦСЕТИ) ===== */
+.footer {
+  text-align: center;
+  background: linear-gradient(to top, #f4e7c5, #dbeef2);
+  padding: 60px 0 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+  margin: 0 15px;
+  color: #007a87;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #005a64;
+  text-decoration: underline;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero-text {
+    max-width: 90%;
+  }
+  .hero-photo img {
+    width: 220px;
+    height: 220px;
+  }
+}
