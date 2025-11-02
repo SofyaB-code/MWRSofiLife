@@ -1,0 +1,88 @@
+/* Основные стили */
+body {
+  margin: 0;
+  padding: 0;
+  background: #0b0742;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Контейнер */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Блок Моя история */
+.about {
+  background: linear-gradient(135deg, #0b0742, #3f2182, #ffcc33);
+  color: white;
+  padding: 100px 0;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  margin-bottom: 24px;
+  color: #ffea9e;
+}
+
+.about-text p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #f1f1f1;
+  margin-bottom: 18px;
+}
+
+/* Кнопка */
+.cta-button {
+  display: inline-block;
+  background: #ffcc33;
+  color: #1e1e1e;
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 204, 51, 0.6);
+}
+
+.cta-button:hover {
+  background: #ffdf70;
+box-shadow: 0 0 25px rgba(255, 204, 51, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Фото в круге */
+.about-photo img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 0 8px rgba(255, 255, 255, 0.2),
+    0 0 25px rgba(255, 204, 51, 0.8),
+    0 0 60px rgba(63, 33, 130, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-photo img:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 35px rgba(255, 204, 51, 0.9),
+    0 0 70px rgba(63, 33, 130, 0.8);
+}
