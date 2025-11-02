@@ -1,4 +1,4 @@
-/* ===== ОБЩИЙ СТИЛЬ ===== */
+/* ===== ОСНОВНОЙ ФОН И ТЕКСТ ===== */
 body {
   margin: 0;
   padding: 0;
@@ -10,18 +10,18 @@ body {
   position: relative;
 }
 
-/* Мягкая карта-подложка */
+/* мягкая карта на фоне всего сайта */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background: url("../images/map-texture.png") center/cover no-repeat;
-  opacity: 0.15;
+  opacity: 0.12;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Контейнер */
+/* контейнер */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -32,40 +32,74 @@ body::before {
 
 /* ===== ГЛАВНЫЙ ЭКРАН ===== */
 .hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+  overflow: hidden;
+  padding: 60px 10%;
+}
+
+/* слой бумаги */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url("../images/paper-texture.png") center/cover no-repeat;
+  z-index: 0;
+}
+
+/* слой карты поверх бумаги */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: url("../images/map-texture.png") center/cover no-repeat;
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+/* контент поверх */
+.hero-content {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
   gap: 60px;
-  padding: 100px 10%;
-  background: url("../images/paper-texture.png") center/cover no-repeat;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* ТЕКСТ СЛЕВА */
+/* ===== ТЕКСТ СЛЕВА ===== */
 .hero-text {
-  flex: 1.8;
-  max-width: 620px;
+  flex: 1.7;
+  max-width: 580px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .hero-text h1 {
   font-family: "Playfair Display", serif;
   font-size: 44px;
   color: #2f3a3a;
-  margin-bottom: 6px;
-  letter-spacing: 1px;
+  margin-bottom: 5px;
 }
 
 .hero-text .subtitle {
   font-style: italic;
   font-size: 18px;
   color: #5d5d5d;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .hero-text h2 {
   font-size: 26px;
-  margin-bottom: 16px;
   color: #3c4b4b;
+  margin-bottom: 16px;
 }
 
 .hero-text p {
@@ -73,37 +107,37 @@ body::before {
   margin-bottom: 20px;
 }
 
-/* Кнопки */
+/* ===== КНОПКИ ===== */
 .cta-button {
   display: inline-block;
-  margin: 8px 12px 0 0;
+  margin: 8px 10px 0 0;
   padding: 12px 30px;
   border-radius: 40px;
   background: linear-gradient(90deg, #007a87, #00a6a9);
   color: #fff;
-  font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 6px 15px rgba(0, 122, 135, 0.3);
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(0, 122, 135, 0.3);
   transition: all 0.3s ease;
 }
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 122, 135, 0.45);
+  box-shadow: 0 8px 25px rgba(0, 122, 135, 0.5);
 }
+
 .cta-button.secondary {
   background: #d9c79c;
   color: #2b2b2b;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 .cta-button.secondary:hover {
-  background: #e3d3a6;
+  background: #e8d6a5;
 }
 
 /* ===== ФОТО СПРАВА ===== */
 .hero-photo {
-  flex: 1.2;
+  flex: 1;
   text-align: right;
-  position: relative;
 }
 
 .hero-photo img {
@@ -111,7 +145,7 @@ body::before {
   height: 280px;
   object-fit: cover;
   border-radius: 50%;
-  border: 8px solid rgba(255, 255, 255, 0.7);
+  border: 8px solid rgba(255, 255, 255, 0.8);
   box-shadow:
     0 0 0 8px rgba(255, 255, 255, 0.5),
     0 8px 25px rgba(0, 0, 0, 0.25);
@@ -149,7 +183,7 @@ section {
   color: #333;
 }
 
-/* ===== КНОПКИ ВНУТРИ РАЗДЕЛОВ ===== */
+/* ===== КНОПКИ В РАЗДЕЛАХ ===== */
 .buttons {
   text-align: center;
   margin-top: 30px;
@@ -182,13 +216,16 @@ section {
 
 /* ===== АДАПТИВ ===== */
 @media (max-width: 900px) {
-  .hero {
+  .hero-content {
     flex-direction: column-reverse;
     text-align: center;
+    gap: 40px;
   }
+
   .hero-text {
-    max-width: 90%;
+background: rgba(255, 255, 255, 0.85);
   }
+
   .hero-photo img {
     width: 220px;
     height: 220px;
