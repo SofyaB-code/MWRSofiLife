@@ -1,5 +1,4 @@
-> Софья:
-/* ===== БАЗОВЫЙ ФОН САЙТА ===== */
+/* ===== ОСНОВНОЙ СТИЛЬ ===== */
 body {
   margin: 0;
   padding: 0;
@@ -11,12 +10,12 @@ body {
   position: relative;
 }
 
-/* ===== ФОН: МЯТАЯ БУМАГА + КАРТА ===== */
+/* ===== ФОН: БУМАГА + КАРТА ===== */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url("../images/paper-texture.png") center/cover no-repeat;
+  background: url("../изображения/paper-texture.png") center/cover no-repeat;
   z-index: 0;
   opacity: 1;
 }
@@ -24,11 +23,37 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: url("../images/map-texture.png") center/cover no-repeat;
+  background: url("../изображения/map-texture.png") center/cover no-repeat;
   z-index: 0;
   opacity: 0.25;
   mix-blend-mode: multiply;
-  pointer-events: none;
+}
+
+/* ===== ВОЗДУШНЫЕ ШАРЫ ===== */
+.balloons img {
+  position: absolute;
+  width: 220px;
+  opacity: 0.9;
+  z-index: 3;
+}
+.balloon-left {
+  top: 40px;
+  left: 5%;
+  animation: balloonFloatLeft 7s ease-in-out infinite;
+}
+.balloon-right {
+  top: 60px;
+  right: 5%;
+  animation: balloonFloatRight 8s ease-in-out infinite;
+}
+
+/* ===== ГИРЛЯНДА ===== */
+.garland img {
+  width: 100%;
+  opacity: 0.9;
+  display: block;
+  transform-origin: top center;
+  animation: sway 6s ease-in-out infinite, glow 4s ease-in-out infinite;
 }
 
 /* ===== ГЛАВНЫЙ ЭКРАН ===== */
@@ -38,20 +63,19 @@ body::after {
   align-items: center;
   justify-content: center;
   min-height: 700px;
-  overflow: hidden;
   padding: 80px 8%;
   z-index: 1;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
   max-width: 1200px;
   gap: 60px;
+  position: relative;
+  z-index: 2;
 }
 
 /* ===== ТЕКСТ СЛЕВА ===== */
@@ -63,14 +87,13 @@ body::after {
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.5s ease-in-out;
 }
-
 .hero-text h2 {
   font-size: 28px;
   color: #2f3a3a;
   margin-bottom: 16px;
 }
-
 .hero-text p {
   font-size: 18px;
   line-height: 1.7;
@@ -78,36 +101,30 @@ body::after {
   margin-bottom: 20px;
 }
 
-/* ===== ФОТО И СПРАВА ===== */
+/* ===== ФОТО СПРАВА ===== */
 .hero-photo {
   flex: 1;
   text-align: center;
   position: relative;
 }
-
 .hero-photo img {
   width: 280px;
   height: 280px;
-  object-fit: cover;
   border-radius: 50%;
   border: 8px solid rgba(255, 255, 255, 0.8);
-  box-shadow:
-    0 0 0 8px rgba(255, 255, 255, 0.5),
-    0 8px 25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.5),
+              0 8px 25px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease;
 }
-
 .hero-photo img:hover {
   transform: scale(1.05);
 }
-
 .photo-name {
   margin-top: 20px;
   font-family: "Playfair Display", serif;
   font-size: 26px;
   color: #2f3a3a;
 }
-
 .photo-subtitle {
   font-style: italic;
   color: #555;
@@ -115,46 +132,7 @@ body::after {
   margin-top: 5px;
 }
 
-/* ===== КНОПКИ ===== */
-.hero-buttons {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 12px 30px;
-  border-radius: 40px;
-  background: linear-gradient(90deg, #007a87, #00a6a9);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 5px 15px rgba(0, 122, 135, 0.3);
-  transition: all 0.3s ease;
-}
-.cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 122, 135, 0.5);
-}
-.cta-button.secondary {
-  background: #d9c79c;
-  color: #2b2b2b;
-}
-.cta-button.secondary:hover {
-  background: #e8d6a5;
-}
-
-/* ===== ИЛЛЮМИНАТОР (КНОПКА ССЫЛКИ) ===== */
-.illuminator-button {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  margin-top: 35px;
-}
-
+/* ===== ИЛЛЮМИНАТОР ===== */
 .illuminator-link {
   position: relative;
   display: inline-block;
@@ -166,14 +144,12 @@ body::after {
   letter-spacing: 0.5px;
   transition: transform 0.3s ease;
 }
-
 .illuminator-link img {
   width: 200px;
   height: auto;
   display: block;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
 }
-
 .illuminator-link span {
   position: absolute;
   top: 48%;
@@ -185,20 +161,14 @@ body::after {
   font-size: 14px;
   backdrop-filter: blur(3px);
 }
-
 .illuminator-link:hover {
   transform: scale(1.05);
 }
 
-/* ===== ВИДЕО В ТЕЛЕФОНЕ ===== */
+/* ===== ТЕЛЕФОН ===== */
 .video-phone {
   position: relative;
-  display: inline-block;
   margin-top: 35px;
-}
-.phone-frame {
-  width: 260px;
-  display: block;
 }
 .video-phone video {
   position: absolute;
@@ -210,19 +180,91 @@ body::after {
   object-fit: cover;
 }
 
-/* ===== ГИРЛЯНДА ===== */
-.garland {
+/* ===== ГАЛЕРЕЯ ===== */
+.gallery {
+  text-align: center;
+  padding: 50px 0;
+  position: relative;
+}
+.rope-bg {
+  width: 90%;
+  margin: 0 auto;
+}
+.photos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: -50px;
+}
+.photo-item {
+  position: relative;
+  animation: fadeUp 1.5s ease forwards;
+  opacity: 0;
+}
+.photo-item:nth-child(1) { animation-delay: 0.3s; }
+.photo-item:nth-child(2) { animation-delay: 0.6s; }
+.photo-item:nth-child(3) { animation-delay: 0.9s; }
+.photo-item:nth-child(4) { animation-delay: 1.2s; }
+.
+photo-item:nth-child(5) { animation-delay: 1.5s; }
+.photo-item:nth-child(6) { animation-delay: 1.8s; }
+
+.photo-item img:first-child {
+  width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  transform: rotate(-3deg);
+}
+.photo-item .clip {
   position: absolute;
-  top: 20px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 95%;
-  pointer-events: none;
-  z-index: 5;
+  width: 40px;
+  height: auto;
 }
-.
 
-> Софья:
-garland img {
-  width: 100%;
-  opacity: 0.9
+/* ===== ПОДВАЛ ===== */
+.footer {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 30px 0;
+  font-size: 16px;
+}
+.footer a {
+  color: #007a87;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes balloonFloatLeft {
+  0% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(-2deg); }
+}
+@keyframes balloonFloatRight {
+  0% { transform: translateY(0px) rotate(2deg); }
+  50% { transform: translateY(-18px) rotate(-1deg); }
+  100% { transform: translateY(0px) rotate(2deg); }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(1.2deg); }
+}
+@keyframes glow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.4); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
