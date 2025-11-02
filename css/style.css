@@ -51,6 +51,8 @@ body {
   width: 220px;
   opacity: 0.9;
   z-index: 3;
+  background: transparent !important;
+  mix-blend-mode: normal;
 }
 .balloon-left {
   top: 40px;
@@ -70,6 +72,7 @@ body {
   display: block;
   transform-origin: top center;
   animation: sway 6s ease-in-out infinite, glow 4s ease-in-out infinite;
+  background: transparent !important;
 }
 
 /* ===== ГЛАВНЫЙ ЭКРАН ===== */
@@ -157,10 +160,12 @@ body {
   transition: transform 0.3s ease;
 }
 .illuminator-link img {
-  width: 200px;
+  width: 180px;
   height: auto;
   display: block;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+  background: transparent;
+  border: none;
 }
 .illuminator-link span {
   position: absolute;
@@ -182,21 +187,28 @@ body {
   position: relative;
   margin-top: 35px;
 }
+.video-phone img {
+  width: 300px;
+  height: auto;
+  border: none;
+  background: transparent;
+}
 .video-phone video {
   position: absolute;
-  top: 13%;
-  left: 10%;
-  width: 80%;
-  height: 73%;
-  border-radius: 20px;
+  top: 14%;
+  left: 11%;
+  width: 78%;
+  height: 70%;
+  border-radius: 18px;
   object-fit: cover;
+  border: none;
 }
 
 /* ===== ГАЛЕРЕЯ ===== */
 .gallery {
   text-align: center;
   padding: 50px 0;
-  position: relative;
+position: relative;
 }
 .rope-bg {
   width: 90%;
@@ -212,7 +224,7 @@ body {
 .photo-item {
   position: relative;
   animation: fadeUp 1.5s ease forwards;
-opacity: 0;
+  opacity: 0;
 }
 .photo-item:nth-child(1) { animation-delay: 0.3s; }
 .photo-item:nth-child(2) { animation-delay: 0.6s; }
@@ -221,18 +233,19 @@ opacity: 0;
 .photo-item:nth-child(5) { animation-delay: 1.5s; }
 
 .photo-item img:first-child {
-  width: 180px;
+  background: #fff;
   border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-  transform: rotate(-3deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  width: 200px;
+  object-fit: cover;
 }
 .photo-item .clip {
+  background: transparent;
+  width: 35px;
+  top: -18px;
   position: absolute;
-  top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
-  height: auto;
 }
 
 /* ===== ПОДВАЛ ===== */
