@@ -1,167 +1,124 @@
-> Софья:
-/* === Общие настройки === */
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  margin: 0;
   font-family: 'Segoe UI', sans-serif;
   color: #123;
-  background: linear-gradient(180deg, #f0f8ff 0%, #dbeff8 100%);
+  background: #f7fbff;
   overflow-x: hidden;
 }
 
-/* === Герой-блок === */
 .hero {
-  background: linear-gradient(120deg, #6eb9e7, #b9e2f7);
+  background: linear-gradient(90deg, #6eb9e7, #a7e1fa);
   color: white;
   text-align: center;
   padding: 90px 20px 60px;
 }
 
 .hero h1 {
-  font-size: clamp(32px, 5vw, 50px);
-  margin: 0;
+  font-size: clamp(30px, 6vw, 50px);
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
+.hero p { font-size: clamp(18px, 3vw, 22px); opacity: 0.9; }
 
-.hero p {
-  font-size: clamp(18px, 3vw, 22px);
-  margin-top: 15px;
-  opacity: 0.9;
-}
-
-/* === Иллюминатор и скидка === */
 .discount-banner {
   position: relative;
   overflow: hidden;
-  height: 400px;
+  height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.discount-banner .banner-bg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.discount-banner .banner-bg-img {
+.banner-bg-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.97) saturate(1.15);
-}
-
-.discount-banner .banner-window {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 360px;
-  transform: translate(-50%, -50%);
-  opacity: 0.9;
-  animation: float 7s ease-in-out infinite;
+  top: 0; left: 0;
+  z-index: 1;
 }
 
-.discount-banner .banner-text {
+.banner-window {
+  position: relative;
+  width: 320px;
+  z-index: 2;
+  opacity: 0.9;
+  animation: float 6s ease-in-out infinite;
+}
+
+.banner-text {
   position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(255,255,255,0.3);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
   border-radius: 20px;
   padding: 20px 28px;
-  max-width: 680px;
   text-align: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  z-index: 3;
 }
 
-.discount-banner h2 {
-  margin: 0 0 6px;
-  font-size: clamp(26px, 4vw, 38px);
-  color: #0e3950;
-}
-
-.discount-banner p {
-  margin: 0;
-  color: #1b4d64;
-  font-weight: 500;
-}
+.banner-text h2 { color: #0e3950; margin-bottom: 6px; }
+.banner-text p { color: #1b4d64; font-weight: 500; }
 
 @keyframes float {
-  0%,100% { transform: translate(-50%, -49%); }
-  50% { transform: translate(-50%, -53%); }
+  0%,100% { transform: translateY(-3px); }
+  50% { transform: translateY(3px); }
 }
 
-/* === История Софьи === */
 .about {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 60px 10%;
   gap: 40px;
-  background: linear-gradient(180deg, #ffffff, #eaf5fb);
+  padding: 60px 10%;
 }
 
 .about img.profile {
-  width: 260px;
-  height: 260px;
+  width: 260px; height: 260px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.about h2 { color: #0f3a53; margin-bottom: 15px; }
+.about p { line-height: 1.6; color: #1a1a1a; }
+
+.gallery {
+  text-align: center;
+  background: #eef8fc;
+  padding: 60px 20px;
+}
+.gallery h2 { color: #0f3a53; margin-bottom: 25px; }
+
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+.mosaic img {
+  width: 100%; height: 230px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: transform 0.4s;
 }
-.about img.profile:hover {
-  transform: scale(1.05);
-}
+.mosaic img:hover { transform: scale(1.05); }
 
-.about .text {
-  max-width: 600px;
-}
-.about h2 {
-  font-size: 28px;
-  color: #0f3a53;
-}
-.about p {
-  font-size: 17px;
-  line-height: 1.6;
-  color: #1a1a1a;
-}
-
-/* === Компания === */
 .company {
   text-align: center;
   padding: 60px 10%;
-  background: linear-gradient(180deg,#d9edf5,#fefefe);
+  background: linear-gradient(180deg, #d9edf5, #fefefe);
 }
-
-.company h2 {
-  color: #0f3a53;
-  font-size: 28px;
-}
+.company h2 { color: #0f3a53; margin-bottom: 20px; }
 .company p {
   max-width: 800px;
-  margin: 0 auto 20px;
-  font-size: 17px;
+  margin: 0 auto 25px;
+  color: #333;
   line-height: 1.6;
-  color: #2a2a2a;
 }
-
-.licenses {
-  list-style: none;
-  padding: 0;
-  margin: 15px auto;
-  color: #0e3950;
-  font-weight: 600;
-}
-
 .license-btn {
-  display: inline-block;
-  margin-top: 20px;
   background: #1b5b7e;
   color: white;
   padding: 12px 24px;
@@ -169,113 +126,43 @@ body {
   text-decoration: none;
   transition: 0.3s;
 }
-.license-btn:hover {
-  background: #268ab5;
-}
+.license-btn:hover { background: #268ab5; }
 
-/* === Галерея (гирлянда) === */
-.gallery {
-  background: #eef8fc;
-  text-align: center;
-  padding: 60px 20px;
-  position: relative;
-}
-
-.gallery h2 {
-  font-size: 28px;
-  color: #0f3a53;
-}
-
-.rope {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  position: relative;
-  margin-top: 30px;
-  gap: 20px;
-}
-
-.rope::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #b58b63;
-  background-image: linear-gradient(90deg, #b58b63, #d5ad87, #b58b63);
-  border-radius: 3px;
-}
-
-.hanging-photo {
-  width: 160px;
-  height: 160px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transform-origin: top center;
-  animation: sway 3s ease-in-out infinite;
-}
-.hanging-photo:nth-child(odd) {
-  animation-delay: 1.5s;
-}
-@keyframes sway {
-  0%,100% { transform: rotate(2deg); }
-  50% { transform: rotate(-2deg); }
-}
-
-/* === Футер === */
 footer {
   background: #1b5b7e;
   color: white;
   text-align: center;
   padding: 30px 20px;
 }
-
-.footer-links {
-  margin-bottom: 15px;
-}
 .footer-links a {
-
-> Софья:
-color: #fff;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: 500;
+  color: #fff; margin: 0 10px; text-decoration: none;
 }
-.footer-links a:hover {
-  text-decoration: underline;
-}
+.footer-links a:hover { text-decoration: underline; }
 
 .social a {
   color: #ffde7a;
   margin: 0 10px;
   text-decoration: none;
 }
+
 .join {
-  margin-top: 15px;
-  font-weight: 500;
+  margin-top: 25px;
+  font-size: 18px;
+  background: linear-gradient(90deg, #ffa930, #ffd26f);
+  padding: 12px 20px;
+  border-radius: 30px;
+  display: inline-block;
 }
+.join a { color: #0e3950; text-decoration: none; font-weight: bold; }
+
 .copy {
   font-size: 13px;
   margin-top: 10px;
   opacity: 0.8;
 }
 
-/* === Адаптация под телефон === */
+/* адаптив */
 @media (max-width: 768px) {
-  .about {
-    flex-direction: column;
-    text-align: center;
-  }
-  .about img.profile {
-    margin-bottom: 20px;
-  }
-  .rope {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .hanging-photo {
-    width: 120px;
-    height: 120px;
-  }
+  .about { flex-direction: column; text-align: center; }
+  .mosaic img { height: 180px; }
 }
