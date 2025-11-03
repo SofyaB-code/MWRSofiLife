@@ -1,76 +1,128 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Путешествия без переплат | Софья Беляева</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MWRSofiLife — Софья Беляева</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <header class="hero">
-    <h1>Путешествия без переплат</h1>
-    <p>Софья Беляева — вдохновляю других мам и семьи открывать мир!</p>
-  </header>
+  <!-- Навигация кнопками -->
+  <nav class="btn-nav" aria-label="Навигация секций">
+    <a href="#about" class="btn">Обо мне</a>
+    <a href="#video" class="btn">Видео</a>
+    <a href="#gallery" class="btn">Галерея</a>
+    <a href="#contacts" class="btn btn-primary">Хочу в клуб</a>
+  </nav>
 
-  <section class="discount-banner">
-    <div class="banner-bg">
-      <img class="banner-bg-img" src="images/sky-bg.jpg" alt="фон неба">
-      <img class="banner-window" src="images/airplane_window.png" alt="иллюминатор">
-      <div class="banner-text">
-        <h2>Путешествуй со скидками до 80%</h2>
-        <p>Travel Advantage™ — закрытая система бронирований для путешествий без переплат.</p>
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="hero-inner container">
+      <img class="avatar" src="images/sofiya-photo.jpg" alt="Софья Беляева">
+      <h1 class="title">Софья Беляева</h1>
+      <p class="subtitle">Путешествия без переплат для семьи и друзей</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://t.me/SofyaBelya" target="_blank" rel="noopener">Хочу в клуб</a>
+        <a class="btn" href="#about">Подробнее</a>
       </div>
     </div>
+  </header>
+
+  <!-- Обо мне -->
+  <section class="section about container" id="about">
+    <h2 class="h2">Моя история</h2>
+    <p>
+      Я <em>мама троих детей</em>, и с детства очень любила путешествия. Раньше это был
+      <em>бюджетный формат</em>: экономия на отелях, экскурсиях, шоппинге. С каждым ребёнком расходы росли,
+      и я всё сильнее чувствовала: <strong>хочу отдыхать по-другому</strong> — с комфортом и без переплат.
+    </p>
+    <p>
+      Всё изменилось с <strong>Travel Advantage</strong> — закрытым клубом, где пятизвёздочные отели доступны по цене
+      трёхзвёздочных и есть предложения, которых нет на классических агрегаторах. Это дало свободу для наших семейных поездок —
+      красиво, разумно и без лишней суеты.
+    </p>
+    <a class="btn btn-primary" href="https://t.me/SofyaBelya" target="_blank" rel="noopener">Хочу в клуб</a>
   </section>
 
-  <section class="about">
-    <img src="images/sofya.jpg" alt="Софья Беляева" class="profile">
-    <div class="text">
-      <h2>Моя история</h2>
-      <p>Я мама троих детей, которая с детства обожала путешествовать. 
-      Раньше это был бюджетный отдых, где на всём приходилось экономить. 
-      Но со временем я поняла: можно отдыхать по-другому — с комфортом, в лучших отелях, и при этом не переплачивать. 
-      Всё изменилось, когда я узнала о Travel Advantage™ — закрытом клубе, где цены ниже, чем у классических туроператоров. 
-      Теперь я вдохновляю других мам и семьи открывать новые границы без лишних затрат.</p>
+  <!-- Видео в телефоне -->
+  <section class="section video container" id="video">
+    <h2 class="h2">Как мы путешествуем</h2>
+    <div class="phone" role="button" onclick="playVideo()" aria-label="Проиграть видео">
+      <img class="phone-body" src="images/iphone.png" alt="">
+      <video id="travelVideo" class="phone-video" src="videos/travel.mp4" preload="metadata" playsinline></video>
+      <button class="play" type="button" aria-label="Воспроизвести"></button>
+    </div>
+    <p class="muted">Нажми на экран — видео начнётся</p>
+  </section>
+
+  <!-- Живая галерея -->
+  <section class="section gallery-wrap" id="gallery">
+    <div class="gallery container">
+      <h2 class="h2">Моменты в дороге</h2>
+
+      <!-- декоративная «верёвочка» -->
+      <img class="rope" src="images/rope.png" alt="" />
+
+      <div class="gallery-row">
+        <!-- карточка с «инстаграм»-рамкой -->
+        <figure class="card card-insta tilt">
+          <img src="images/travel1.jpg" alt="Кадр 1">
+          <img class="frame" src="images/insta-frame.png" alt="">
+          <figcaption>Новый город — новый ритм</figcaption>
+        </figure>
+
+        <!-- карточка с «ютуб»-рамкой -->
+        <figure class="card card-yt float">
+          <img src="images/travel2.jpg" alt="Кадр 2">
+          <img class="frame" src="images/youtube-frame.png" alt="">
+          <figcaption>Море, свет и прогулки</figcaption>
+        </figure>
+
+        <figure class="card tilt-slow">
+          <img src="images/travel3.jpg" alt="Кадр 3">
+          <figcaption>Семейные дни — бесценны</figcaption>
+        </figure>
+
+        <figure class="card float-slow">
+          <img src="images/travel4.jpg" alt="Кадр 4">
+          <figcaption>Закаты, к которым хочется вернуться</figcaption>
+        </figure>
+      </div>
+
+      <!-- Декор: самолёт и шары -->
+      <img class="plane" src="images/plane.png" alt="">
+      <img class="balloon b1" src="images/balloon1.png" alt="">
+      <img class="balloon b2" src="images/balloon2.png" alt="">
+      <img class="balloon b3" src="images/balloon3.png" alt="">
+Telegram
+Софья Беляева
+
+Путешествую бесплатно https://t.me/travelfreelife ✨🚤
+
+SEND MESSAGE
+<img class="lights" src="images/lights.png" alt="">
     </div>
   </section>
 
-  <section class="gallery">
-    <h2>Мои путешествия</h2>
-    <div class="mosaic">
-      <img src="images/travel1.jpg" alt="">
-      <img src="images/travel2.jpg" alt="">
-      <img src="images/travel3.jpg" alt="">
-      <img src="images/travel4.jpg" alt="">
-      <img src="images/travel5.jpg" alt="">
-      <img src="images/travel6.jpg" alt="">
+  <!-- Контакты -->
+  <section class="section contacts container" id="contacts">
+    <h2 class="h2">Связаться</h2>
+    <p class="muted">Быстрее всего отвечаю в Telegram</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://t.me/SofyaBelya" target="_blank" rel="noopener">Хочу в клуб</a>
+      <a class="btn" href="https://t.me/SofyaBelya" target="_blank" rel="noopener">@SofyaBelya</a>
     </div>
   </section>
 
-  <section class="company">
-    <h2>О компании</h2>
-    <p>MWR Life — международная корпорация, основанная в 2013 году. 
-    Центральный офис в США, филиалы во Франции и Португалии. 
-    Компания владеет платформой Travel Advantage™, имеющей лицензии и аккредитации IATA, ATOUT France и Allianz.</p>
-    <a class="license-btn" href="https://www.mwrlife.com/Sofiaruby777/join" target="_blank">Лицензии и официальный сайт</a>
-  </section>
-
-  <footer>
-    <div class="footer-links">
-      <a href="https://mwrlife.online/Sofiaruby777/" target="_blank">Смотреть презентацию</a>
-      <a href="https://www.mwrlife.com/Sofiaruby777/join" target="_blank">Официальный сайт</a>
-      <a href="https://t.me/otziviMWR" target="_blank">Отзывы</a>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Независимый амбассадор MWR Life | Travel Advantage™</p>
+      <p class="muted small">Сайт не является официальным сайтом компании MWR Life.</p>
     </div>
-    <div class="social">
-      <a href="https://vk.com/sofya_milano" target="_blank">VK</a> |
-      <a href="https://t.me/Sofyabelya" target="_blank">Telegram</a>
-    </div>
-    <div class="join">
-      <a href="https://t.me/Sofyabelya" target="_blank">ХОЧУ В КЛУБ</a>
-    </div>
-    <p class="copy">© 2025 Софья Беляева | Travel Advantage</p>
   </footer>
 
+  <script src="js/main.js"></script>
 </body>
 </html>
